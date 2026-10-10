@@ -1,0 +1,118 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+const projects = [
+	{
+		id: 'project-one',
+		title: 'Project one',
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus.',
+		technologies: ['Technology one', 'Technology two'],
+		source: 'https://github.com/your-username/project-one',
+		demo: 'https://example.com/project-one',
+	},
+	{
+		id: 'project-two',
+		title: 'Project two',
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum.',
+		technologies: ['Technology three', 'Technology four'],
+		source: 'https://github.com/your-username/project-two',
+		demo: 'https://example.com/project-two',
+	},
+	{
+		id: 'project-three',
+		title: 'Project three',
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis consectetur purus sit amet fermentum.',
+		technologies: ['Technology five', 'Technology six'],
+		source: 'https://github.com/your-username/project-three',
+		demo: 'https://example.com/project-three',
+	},
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Portfolio | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+		<style>
+			.project-list {
+				display: grid;
+				gap: 1.5rem;
+				grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+				list-style: none;
+				padding: 0;
+			}
+
+			.project-card {
+				display: flex;
+				flex-direction: column;
+				border: 1px solid rgba(var(--gray), 25%);
+				border-radius: 0.75rem;
+				padding: 1.5rem;
+			}
+
+			.project-card h2 {
+				font-size: 1.75rem;
+			}
+
+			.technologies {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5rem;
+				padding: 0;
+				list-style: none;
+			}
+
+			.technologies li {
+				padding: 0.2rem 0.6rem;
+				border-radius: 1rem;
+				background: rgba(var(--gray-light), 70%);
+				font-size: 0.9rem;
+			}
+
+			.project-links {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 1rem;
+				margin-top: auto;
+				padding-top: 1rem;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Portfolio</h1>
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Replace these sample projects,
+				technologies, and links with your own work.
+			</p>
+			<ul class="project-list">
+				{projects.map((project) => (
+					<li class="project-card" id={project.id}>
+						<h2>{project.title}</h2>
+						<p>{project.description}</p>
+						<h3>Technologies used</h3>
+						<ul class="technologies">
+							{project.technologies.map((technology) => <li>{technology}</li>)}
+						</ul>
+						<div class="project-links">
+							<a href={project.source} target="_blank" rel="noreferrer">
+								Source code placeholder
+							</a>
+							<a href={project.demo} target="_blank" rel="noreferrer">
+								Live demo placeholder
+							</a>
+						</div>
+					</li>
+				))}
+			</ul>
+		</main>
+		<Footer />
+	</body>
+</html>
