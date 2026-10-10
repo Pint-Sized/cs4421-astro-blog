@@ -2,7 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { SITE_TITLE } from '../consts';
 
 const projects = [
 	{
@@ -40,7 +40,10 @@ const projects = [
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`Portfolio | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+		<BaseHead
+			title={`Portfolio | ${SITE_TITLE}`}
+			description="Browse selected development projects, contributions, technologies, and available demos or source code."
+		/>
 		<style>
 			.project-list {
 				display: grid;
@@ -104,7 +107,7 @@ const projects = [
 	</head>
 	<body>
 		<Header />
-		<main>
+		<main id="main-content" tabindex="-1">
 			<h1>Portfolio</h1>
 			<p>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Browse selected projects, their
