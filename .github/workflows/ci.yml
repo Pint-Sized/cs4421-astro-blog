@@ -31,5 +31,8 @@ jobs:
       - name: Check Astro files
         run: npm run check
 
+      - name: Run unit tests
+        run: npm run test:unit
+
       - name: Build site
         run: npm run build
