@@ -3,19 +3,18 @@ import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
 ---
 
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <header>
-	<nav>
-		<h2>
-			<a href="/">{SITE_TITLE}</a>
-		</h2>
-		<div class="internal-links">
+	<div class="header-content">
+		<a class="site-title" href="/">{SITE_TITLE}</a>
+		<nav class="internal-links" aria-label="Primary">
 			<HeaderLink href="/">Home</HeaderLink>
 			<HeaderLink href="/#experience">Experience</HeaderLink>
 			<HeaderLink href="/cv">CV</HeaderLink>
 			<HeaderLink href="/portfolio">Portfolio</HeaderLink>
 			<HeaderLink href="/blog">Blog</HeaderLink>
-		</div>
-		<div class="social-links">
+		</nav>
+		<nav class="social-links" aria-label="Social media">
 			<a href="https://m.webtoo.ls/@astro" target="_blank">
 				<span class="sr-only">Follow Astro on Mastodon</span>
 				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32">
@@ -43,51 +42,78 @@ import HeaderLink from './HeaderLink.astro';
 					></path>
 				</svg>
 			</a>
-		</div>
-	</nav>
+		</nav>
+	</div>
 </header>
 <style>
+	.skip-link {
+		position: absolute;
+		top: 0.5rem;
+		left: 0.5rem;
+		z-index: 1;
+		padding: 0.5rem 0.75rem;
+		transform: translateY(-150%);
+		border-radius: 0.25rem;
+		background: white;
+		color: rgb(var(--black));
+	}
+
+	.skip-link:focus {
+		transform: translateY(0);
+	}
+
 	header {
 		margin: 0;
 		padding: 0 1em;
 		background: white;
 		box-shadow: 0 2px 8px rgba(var(--black), 5%);
 	}
-	h2 {
-		margin: 0;
-		font-size: 1em;
-	}
-
-	h2 a,
-	h2 a.active {
+	.site-title {
+		font-size: 1rem;
+		font-weight: 700;
 		text-decoration: none;
 	}
-	nav {
+
+	.header-content {
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
 		justify-content: space-between;
 		gap: 0.5rem;
 	}
+
 	.internal-links {
 		display: flex;
 		flex-wrap: wrap;
 	}
-	nav a {
+
+	.header-content a {
 		padding: 1em 0.5em;
-		color: var(--black);
+		color: rgb(var(--black));
 		border-bottom: 4px solid transparent;
 		text-decoration: none;
 	}
-	nav a.active {
+
+	.header-content a.active {
 		text-decoration: none;
 		border-bottom-color: var(--accent);
 	}
+
 	.social-links,
 	.social-links a {
 		display: flex;
 	}
+
 	@media (max-width: 720px) {
+		.header-content {
+			align-items: flex-start;
+			flex-direction: column;
+		}
+
+		.internal-links {
+			margin-inline: -0.5rem;
+		}
+
 		.social-links {
 			display: none;
 		}

@@ -2,13 +2,16 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { SITE_TITLE } from '../consts';
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`CV | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+		<BaseHead
+			title={`CV | ${SITE_TITLE}`}
+			description="Review the developer's curriculum vitae, work experience, education, credentials, and skills."
+		/>
 		<style>
 			.cv-section {
 				margin-block: 3rem;
@@ -95,7 +98,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	</head>
 	<body>
 		<Header />
-		<main>
+		<main id="main-content" tabindex="-1">
 			<h1>Curriculum vitae</h1>
 			<p class="placeholder-note">
 				Sample CV content: replace the example details and Lorem ipsum text with your own verified

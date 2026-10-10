@@ -4,7 +4,7 @@ const today = new Date();
 
 <footer>
 	&copy; {today.getFullYear()} Your name here. All rights reserved.
-	<div class="social-links">
+	<nav class="social-links" aria-label="Social media">
 		<a href="https://m.webtoo.ls/@astro" target="_blank">
 			<span class="sr-only">Follow Astro on Mastodon</span>
 			<svg
@@ -44,7 +44,7 @@ const today = new Date();
 				></path>
 			</svg>
 		</a>
-	</div>
+	</nav>
 </footer>
 <style>
 	footer {
@@ -61,7 +61,7 @@ const today = new Date();
 	}
 	.social-links a {
 		text-decoration: none;
-		color: rgb(var(--gray));
+		color: rgb(var(--gray-dark));
 	}
 	.social-links a:hover {
 		color: rgb(var(--gray-dark));
