@@ -29,6 +29,68 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 				border-left: 4px solid var(--accent);
 				background: rgba(var(--gray-light), 50%);
 			}
+
+			.download-link {
+				display: inline-block;
+				margin-block: 1rem 2rem;
+				padding: 0.65rem 1rem;
+				border-radius: 0.4rem;
+				background: var(--accent);
+				color: white;
+				font-weight: 700;
+				text-decoration: none;
+			}
+
+			.download-link:hover {
+				background: var(--accent-dark);
+				color: white;
+			}
+
+			@media print {
+				:global(body) {
+					background: white;
+					color: black;
+					font-size: 11pt;
+					line-height: 1.4;
+				}
+
+				:global(header),
+				:global(footer),
+				.download-link {
+					display: none;
+				}
+
+				:global(main) {
+					width: auto;
+					max-width: none;
+					margin: 0;
+					padding: 0;
+				}
+
+				h1 {
+					font-size: 26pt;
+				}
+
+				h2 {
+					font-size: 17pt;
+				}
+
+				h3 {
+					font-size: 13pt;
+				}
+
+				.cv-section {
+					margin-block: 1.5rem;
+				}
+
+				.cv-entry {
+					break-inside: avoid;
+				}
+
+				.placeholder-note {
+					background: white;
+				}
+			}
 		</style>
 	</head>
 	<body>
@@ -39,6 +101,9 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 				Sample CV content: replace the example details and Lorem ipsum text with your own verified
 				information.
 			</p>
+			<a class="download-link" href="/cv.pdf" download="developer-cv.pdf">
+				Download CV as PDF
+			</a>
 
 			<section class="cv-section" aria-labelledby="profile-heading">
 				<h2 id="profile-heading">Professional profile</h2>
