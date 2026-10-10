@@ -17,8 +17,34 @@ const recentPosts = (await getCollection('blog'))
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
 			.intro,
+			.experience,
+			.career-links,
 			.recent-posts {
 				margin-block: 4rem;
+			}
+
+			.experience-grid,
+			.career-links ul {
+				display: grid;
+				gap: 1.5rem;
+				grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+				list-style: none;
+				padding: 0;
+			}
+
+			.experience-card,
+			.career-links li {
+				border: 1px solid rgba(var(--gray), 25%);
+				border-radius: 0.75rem;
+				padding: 1.25rem;
+			}
+
+			.experience-card p:last-child {
+				margin-bottom: 0;
+			}
+
+			.career-links a {
+				font-weight: 700;
 			}
 
 			.recent-posts ul {
@@ -54,12 +80,60 @@ const recentPosts = (await getCollection('blog'))
 		<Header />
 		<main>
 			<section class="intro" aria-labelledby="intro-heading">
-				<h1 id="intro-heading">Development blog</h1>
+				<h1 id="intro-heading">Developer profile</h1>
 				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante
-					venenatis dapibus posuere velit aliquet.
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu leo quam. Pellentesque
+					ornare sem lacinia quam venenatis vestibulum.
 				</p>
-				<p><a href="/blog/">Explore all blog posts</a></p>
+				<p><a href="#experience">Explore my experience</a></p>
+			</section>
+
+			<section class="experience" id="experience" aria-labelledby="experience-heading">
+				<h2 id="experience-heading">Experience and credentials</h2>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Replace these sample entries
+					with your career history and qualifications.
+				</p>
+				<div class="experience-grid">
+					<article class="experience-card">
+						<h3>Example role</h3>
+						<p><strong>Example organization</strong> · 20XX–Present</p>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus
+							magna, vel scelerisque nisl consectetur et.
+						</p>
+					</article>
+					<article class="experience-card">
+						<h3>Example qualification</h3>
+						<p><strong>Example institution</strong> · 20XX</p>
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis consectetur
+							purus sit amet fermentum.
+						</p>
+					</article>
+				</div>
+			</section>
+
+			<section class="career-links" aria-labelledby="career-links-heading">
+				<h2 id="career-links-heading">Explore my work</h2>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Find more information in the
+					sections below.
+				</p>
+				<ul>
+					<li>
+						<h3><a href="/cv">CV</a></h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					</li>
+					<li>
+						<h3><a href="/portfolio">Portfolio</a></h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					</li>
+					<li>
+						<h3><a href="/blog/">Blog</a></h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					</li>
+				</ul>
 			</section>
 
 			<section class="recent-posts" aria-labelledby="recent-posts-heading">

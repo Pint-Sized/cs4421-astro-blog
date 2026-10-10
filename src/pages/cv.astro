@@ -1,0 +1,98 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`CV | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+		<style>
+			.cv-section {
+				margin-block: 3rem;
+			}
+
+			.cv-entry {
+				margin-block: 1.5rem;
+				padding-bottom: 1.5rem;
+				border-bottom: 1px solid rgba(var(--gray), 25%);
+			}
+
+			.cv-entry:last-child {
+				border-bottom: 0;
+			}
+
+			.placeholder-note {
+				padding: 1rem;
+				border-left: 4px solid var(--accent);
+				background: rgba(var(--gray-light), 50%);
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Curriculum vitae</h1>
+			<p class="placeholder-note">
+				Sample CV content: replace the example details and Lorem ipsum text with your own verified
+				information.
+			</p>
+
+			<section class="cv-section" aria-labelledby="profile-heading">
+				<h2 id="profile-heading">Professional profile</h2>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui. Nulla vitae
+					elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur.
+				</p>
+			</section>
+
+			<section class="cv-section" aria-labelledby="experience-heading">
+				<h2 id="experience-heading">Work experience</h2>
+				<article class="cv-entry">
+					<h3>Example software developer</h3>
+					<p><strong>Example organization</strong> · 20XX–Present</p>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante
+						venenatis dapibus posuere velit aliquet.
+					</p>
+				</article>
+				<article class="cv-entry">
+					<h3>Example junior developer</h3>
+					<p><strong>Example organization</strong> · 20XX–20XX</p>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus mollis
+						interdum.
+					</p>
+				</article>
+			</section>
+
+			<section class="cv-section" aria-labelledby="education-heading">
+				<h2 id="education-heading">Education and credentials</h2>
+				<article class="cv-entry">
+					<h3>Example qualification</h3>
+					<p><strong>Example institution</strong> · 20XX</p>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras justo odio, dapibus ac
+						facilisis in, egestas eget quam.
+					</p>
+				</article>
+				<article class="cv-entry">
+					<h3>Example certification</h3>
+					<p><strong>Example provider</strong> · 20XX</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+				</article>
+			</section>
+
+			<section class="cv-section" aria-labelledby="skills-heading">
+				<h2 id="skills-heading">Skills</h2>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere consectetur est at
+					lobortis. Replace this text with your relevant technologies and skills.
+				</p>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
