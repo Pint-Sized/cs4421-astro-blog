@@ -5,6 +5,7 @@ import { beforeAll, describe, expect, it } from 'vitest';
 
 import cv from './cv.json';
 
+// Read selectable text from PDF text arrays, inflating compressed page streams.
 function extractTextArrays(pdf: Buffer): string[] {
 	const source = pdf.toString('latin1');
 	const decoder = new TextDecoder('windows-1252');
@@ -36,6 +37,7 @@ function extractTextArrays(pdf: Buffer): string[] {
 describe('generated CV PDF', () => {
 	let pdfText: string;
 
+	// Generate the artifact once, then verify its signature and extract its text.
 	beforeAll(async () => {
 		execFileSync(process.execPath, ['scripts/generate-cv-pdf.js']);
 		const pdf = await readFile('public/cv.pdf');
@@ -44,6 +46,7 @@ describe('generated CV PDF', () => {
 		pdfText = extractTextArrays(pdf).join('\n');
 	});
 
+	// Compare every displayed CV field to the text retained in the downloadable PDF.
 	it('contains each current CV field as selectable PDF text', () => {
 		const currentCvText = [
 			cv.notice,
@@ -66,6 +69,7 @@ describe('generated CV PDF', () => {
 		}
 	});
 
+	// Ensure page numbering is present even when the CV spans multiple pages.
 	it('includes generated page numbering', () => {
 		expect(pdfText).toMatch(new RegExp(`${cv.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')} · 1 / \\d+`));
 	});

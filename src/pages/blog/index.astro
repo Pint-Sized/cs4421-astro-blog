@@ -20,6 +20,7 @@ const posts = (await getCollection('blog')).sort(
 			description="Read recent development articles, project notes, and technical writing."
 		/>
 		<style>
+			/* Give the blog index room for a featured first post and a responsive card grid. */
 			main {
 				width: 960px;
 			}
@@ -31,6 +32,7 @@ const posts = (await getCollection('blog')).sort(
 				margin: 0;
 				padding: 0;
 			}
+			/* Style the first item as a featured post and later items as compact cards. */
 			ul li {
 				width: calc(50% - 1rem);
 				padding: 1rem;
@@ -42,6 +44,7 @@ const posts = (await getCollection('blog')).sort(
 				transition: transform 160ms ease, box-shadow 160ms ease;
 			}
 
+			/* Add varied accent colors without changing the shared card structure. */
 			ul li:nth-child(3n + 2) {
 				border-top-color: #52f2d0;
 			}
@@ -72,6 +75,7 @@ const posts = (await getCollection('blog')).sort(
 			ul li a {
 				display: block;
 			}
+			/* Keep post titles and dates readable on the dark surfaces. */
 			.title {
 				margin: 0;
 				color: #f5f2ff;
@@ -90,6 +94,7 @@ const posts = (await getCollection('blog')).sort(
 				transform: translateY(-2px);
 				box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 24px rgba(141, 123, 255, 0.12);
 			}
+			/* Collapse cards to one column on smaller screens. */
 			@media (max-width: 720px) {
 				ul {
 					gap: 0.5em;
@@ -117,6 +122,7 @@ const posts = (await getCollection('blog')).sort(
 	<body>
 		<Header />
 		<main id="main-content" tabindex="-1">
+			<!-- Present posts in reverse chronological order from the blog collection. -->
 			<section aria-labelledby="blog-heading">
 				<h1 id="blog-heading">Blog</h1>
 				<ul>

@@ -6,10 +6,10 @@ import { defineConfig, fontProviders } from 'astro/config';
 import awsAmplify from 'astro-aws-amplify';
 import node from '@astrojs/node';
 
-const adapter =
-	process.env.ASTRO_ADAPTER === 'amplify' ? awsAmplify() : node({ mode: 'standalone' });
+// Use the deployment adapter only in Amplify builds; local builds use standalone Node.
+const adapter = process.env.ASTRO_ADAPTER === 'amplify' ? awsAmplify() : node({ mode: 'standalone' });
 
-// https://astro.build/config
+// Configure server output, canonical site metadata, integrations, and the bundled local font.
 export default defineConfig({
 	output: 'server',
 	adapter,

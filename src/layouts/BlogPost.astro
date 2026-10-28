@@ -11,10 +11,12 @@ type Props = CollectionEntry<'blog'>['data'];
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
+<!-- Provide shared metadata, navigation, and article structure for every blog post. -->
 <html lang="en">
 	<head>
 		<BaseHead title={title} description={description} />
 		<style>
+			/* Keep the article full-width while constraining its readable prose column. */
 			main {
 				width: calc(100% - 2em);
 				max-width: 100%;
@@ -30,6 +32,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				box-shadow: var(--box-shadow);
 				border: 1px solid var(--border);
 			}
+			/* Set off article metadata and body copy with the site's dark glass surface. */
 			.prose {
 				width: 900px;
 				max-width: calc(100% - 2em);
@@ -71,6 +74,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 	<body>
 		<Header />
 		<main id="main-content" tabindex="-1">
+			<!-- Decorative hero art is optional; the post title and body remain the article content. -->
 			<article>
 				<div class="hero-image">
 					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}

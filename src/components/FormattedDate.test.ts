@@ -2,6 +2,7 @@ import { experimental_AstroContainer as AstroContainer } from 'astro/container';
 import { describe, expect, it } from 'vitest';
 import FormattedDate from './FormattedDate.astro';
 
+// Verify the Astro component keeps its semantic date markup and visible format.
 describe('FormattedDate', () => {
 	it('renders an accessible time element with a formatted date', async () => {
 		const container = await AstroContainer.create();

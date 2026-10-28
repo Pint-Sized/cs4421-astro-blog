@@ -2,11 +2,13 @@
 import { getEntry, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
 
+// Resolve the requested collection entry and prepare its rendered Markdown body.
 const post = Astro.params.slug ? await getEntry('blog', Astro.params.slug) : undefined;
 if (!post) Astro.response.status = 404;
 const Content = post ? (await render(post)).Content : undefined;
 ---
 
+<!-- Render the matching post or a clear not-found response for unknown slugs. -->
 {
 	post && Content ? (
 		<BlogPost {...post.data}>

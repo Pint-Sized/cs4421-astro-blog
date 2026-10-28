@@ -3,10 +3,12 @@ import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
 ---
 
+<!-- Offer keyboard users a direct route past the repeated navigation. -->
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <header>
 	<div class="header-content">
 		<a class="site-title" href="/">{SITE_TITLE}</a>
+		<!-- Group internal destinations separately from external social profiles. -->
 		<nav class="internal-links" aria-label="Primary">
 			<HeaderLink href="/">Home</HeaderLink>
 			<HeaderLink href="/cv">CV</HeaderLink>
@@ -14,6 +16,7 @@ import HeaderLink from './HeaderLink.astro';
 			<HeaderLink href="/blog">Blog</HeaderLink>
 			<HeaderLink href="/#contact">Contact</HeaderLink>
 		</nav>
+		<!-- Clearly label the only public social profiles. -->
 		<nav class="social-links" aria-label="Social media">
 			<a href="https://github.com/Pint-Sized" target="_blank" rel="noopener noreferrer">
 				GitHub
@@ -27,6 +30,7 @@ import HeaderLink from './HeaderLink.astro';
 	</div>
 </header>
 <style>
+	/* Reveal the skip link only when it receives keyboard focus. */
 	.skip-link {
 		position: absolute;
 		top: 0.5rem;
@@ -44,6 +48,7 @@ import HeaderLink from './HeaderLink.astro';
 		transform: translateY(0);
 	}
 
+	/* Keep navigation visible while scrolling, with a fallback for reduced transparency. */
 	header {
 		position: sticky;
 		top: 0;
@@ -89,6 +94,7 @@ import HeaderLink from './HeaderLink.astro';
 		flex-wrap: wrap;
 	}
 
+	/* Share consistent sizing and focus feedback across both navigation groups. */
 	.header-content a {
 		margin-block: 0.4rem;
 		padding: 0.55rem 0.75rem;
@@ -110,6 +116,7 @@ import HeaderLink from './HeaderLink.astro';
 		color: #c3b9ff;
 	}
 
+	/* Stack navigation groups on narrow screens without hiding destinations. */
 	@media (max-width: 720px) {
 		.header-content {
 			align-items: flex-start;

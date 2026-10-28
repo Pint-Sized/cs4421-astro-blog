@@ -3,6 +3,8 @@ dist/
 .amplify-hosting/
 # generated types
 .astro/
+test-results/
+playwright-report/
 
 # dependencies
 node_modules/

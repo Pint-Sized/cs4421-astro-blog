@@ -8,8 +8,10 @@ const cvPath = resolve(root, 'src/data/cv.json');
 const outputPath = resolve(root, 'public/cv.pdf');
 const cv = JSON.parse(await readFile(cvPath, 'utf8'));
 
+// Ensure the public output directory exists before creating the PDF stream.
 await mkdir(dirname(outputPath), { recursive: true });
 
+// Configure a selectable-text A4 document with metadata from the canonical CV.
 const document = new PDFDocument({
 	size: 'A4',
 	margins: { top: 54, right: 58, bottom: 58, left: 58 },
@@ -26,12 +28,14 @@ const output = createWriteStream(outputPath);
 const contentWidth = document.page.width - document.page.margins.left - document.page.margins.right;
 const bottomLimit = document.page.height - document.page.margins.bottom;
 
+// Start a new page before content would extend into the footer margin.
 function ensureSpace(height) {
 	if (document.y + height > bottomLimit) {
 		document.addPage();
 	}
 }
 
+// Apply shared paragraph typography and reserve space before adding text.
 function addParagraph(text, options = {}) {
 	const { color = '#29263a', ...style } = {
 		width: contentWidth,
@@ -47,6 +51,7 @@ function addParagraph(text, options = {}) {
 	document.moveDown(0.55);
 }
 
+// Render the identity and contact information at the top of the document.
 document.font('Helvetica-Bold').fontSize(25).fillColor('#171522').text(cv.title);
 document.moveDown(0.35);
 document.font('Helvetica-Bold').fontSize(17).fillColor('#5140ad').text(cv.name);
@@ -58,6 +63,7 @@ addParagraph(cv.notice, {
 	color: '#762953',
 });
 
+// Render each section, its optional prose, and its optional dated entries.
 for (const section of cv.sections) {
 	ensureSpace(44);
 	document.moveDown(0.35);
@@ -91,6 +97,7 @@ for (const section of cv.sections) {
 	}
 }
 
+// Add consistent page numbers after the content has established page count.
 const pageRange = document.bufferedPageRange();
 for (let index = 0; index < pageRange.count; index += 1) {
 	document.switchToPage(index);
@@ -106,6 +113,7 @@ for (let index = 0; index < pageRange.count; index += 1) {
 		);
 }
 
+// Wait for the stream to finish so callers know the PDF is fully written.
 await new Promise((resolvePromise, rejectPromise) => {
 	output.once('finish', resolvePromise);
 	output.once('error', rejectPromise);
