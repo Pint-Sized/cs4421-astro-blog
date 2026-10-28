@@ -13,7 +13,7 @@ const adapter =
 export default defineConfig({
 	output: 'server',
 	adapter,
-	site: process.env.SITE_URL || 'https://example.com',
+	site: process.env.SITE_URL || 'https://main.d1pviesf4yue6u.amplifyapp.com/',
 	integrations: [mdx(), sitemap()],
 	fonts: [
 		{
