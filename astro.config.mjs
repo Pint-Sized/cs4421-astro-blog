@@ -4,11 +4,15 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig, fontProviders } from 'astro/config';
 import awsAmplify from 'astro-aws-amplify';
+import node from '@astrojs/node';
+
+const adapter =
+	process.env.ASTRO_ADAPTER === 'amplify' ? awsAmplify() : node({ mode: 'standalone' });
 
 // https://astro.build/config
 export default defineConfig({
 	output: 'server',
-	adapter: awsAmplify(),
+	adapter,
 	site: process.env.SITE_URL || 'https://example.com',
 	integrations: [mdx(), sitemap()],
 	fonts: [

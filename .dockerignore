@@ -1,0 +1,16 @@
+.git
+.github
+.astro
+.amplify-hosting
+.npm
+docs
+dist
+node_modules
+coverage
+README.md
+AGENTS.md
+amplify.yml
+npm-debug.log*
+.env
+.env.*
+!.env.example

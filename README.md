@@ -78,23 +78,42 @@ For the rollback drill, merge a deliberately broken change to the connected
 branch through a PR, verify the live result, then merge a revert PR and confirm
 Amplify redeploys the restored version.
 
-## Dynamic SSR locally
+## SSR and container deployment
 
-Astro is configured for server rendering with the community
-`astro-aws-amplify` adapter. Run the development server locally with:
+Astro uses the official standalone Node adapter by default, which is used by
+the Docker build. Amplify builds explicitly set `ASTRO_ADAPTER=amplify` to use
+the community `astro-aws-amplify` adapter.
+
+Build and run the Docker image locally:
 
 ```sh
-npm run dev -- --host 0.0.0.0
+docker build --platform linux/amd64 -t astro-blog:v1.0.0 .
+docker run -d -p 4321:4321 --name my-blog -e NODE_ENV=production astro-blog:v1.0.0
 ```
 
-In another terminal, check the dynamic health endpoint:
+Verify the API and container health:
 
 ```sh
 curl -i http://localhost:4321/api/health
+docker ps
+docker inspect --format='{{json .State.Health}}' my-blog
 ```
 
-It should return HTTP 200 and JSON with `status`, `uptime`, and `timestamp`.
-Each request also emits a structured JSON log line in the server terminal.
+The API should return HTTP 200 and JSON with `status`, `uptime`, and `timestamp`.
+View request logs with `docker logs -f my-blog`; stop the test container with
+`docker rm -f my-blog`.
+
+To publish to ECR, create a private repository named `astro-blog` in your AWS
+region, authenticate Docker with AWS CLI credentials, then tag and push the
+image using that repository's URI. If you have not created the registry yet,
+create it in **AWS Console → ECR → Private repositories → Create repository**.
+
+```sh
+aws ecr get-login-password --region REGION | docker login --username AWS --password-stdin ACCOUNT_ID.dkr.ecr.REGION.amazonaws.com
+docker tag astro-blog:v1.0.0 ACCOUNT_ID.dkr.ecr.REGION.amazonaws.com/astro-blog:v1.0.0
+docker push ACCOUNT_ID.dkr.ecr.REGION.amazonaws.com/astro-blog:v1.0.0
+```
+
 See [ADR-001](docs/adr/ADR-001-transition-to-ssr-and-containers.md) for the
 architecture decision.
 
