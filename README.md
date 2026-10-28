@@ -54,6 +54,26 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
+## Deploying to AWS
+
+This project uses AWS Amplify Hosting. The `amplify.yml` build specification
+installs dependencies and builds the Astro site into `dist/`. Amplify hosts the
+site over HTTPS and rebuilds it when changes reach the connected branch; no CDK
+bootstrap or AWS credentials in GitHub Actions are needed.
+
+To deploy:
+
+1. In the AWS Console, open **AWS Amplify** and choose **Create new app**.
+2. Connect GitHub, authorize Amplify, and select this repository and the `main`
+   branch. Accept the suggested `amplify.yml` build settings and deploy.
+3. Open the deployed app in Amplify to find its HTTPS URL.
+4. In the Amplify app's build settings, set the `SITE_URL` environment variable
+   to that URL, then redeploy so the generated sitemap uses the correct domain.
+
+For the rollback drill, merge a deliberately broken change to the connected
+branch through a PR, verify the live result, then merge a revert PR and confirm
+Amplify redeploys the restored version.
+
 ## 👀 Want to learn more?
 
 Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
