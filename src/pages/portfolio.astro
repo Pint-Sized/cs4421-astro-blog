@@ -7,32 +7,30 @@ import { SITE_TITLE } from '../consts';
 const projects = [
 	{
 		id: 'project-one',
-		title: 'Project one',
-		purpose:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus.',
-		contribution:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.',
-		technologies: ['Technology one', 'Technology two'],
-		source: 'https://github.com/your-username/project-one',
-		demo: 'https://example.com/project-one',
+		title: '[Project name]',
+		purpose: '[Describe the problem this project solves and who it is for.]',
+		contribution: '[Describe your role, work, and notable outcomes.]',
+		technologies: ['[Technology]', '[Technology]'],
+		source: '',
+		demo: '',
 	},
 	{
 		id: 'project-two',
-		title: 'Project two',
-		purpose:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum.',
-		contribution:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper nulla non metus auctor fringilla.',
-		technologies: ['Technology three', 'Technology four'],
+		title: '[Project name]',
+		purpose: '[Describe the problem this project solves and who it is for.]',
+		contribution: '[Describe your role, work, and notable outcomes.]',
+		technologies: ['[Technology]', '[Technology]'],
+		source: '',
+		demo: '',
 	},
 	{
 		id: 'project-three',
-		title: 'Project three',
-		purpose:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis consectetur purus sit amet fermentum.',
-		contribution:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur.',
-		technologies: ['Technology five', 'Technology six'],
+		title: '[Project name]',
+		purpose: '[Describe the problem this project solves and who it is for.]',
+		contribution: '[Describe your role, work, and notable outcomes.]',
+		technologies: ['[Technology]', '[Technology]'],
+		source: '',
+		demo: '',
 	},
 ];
 ---
@@ -110,8 +108,7 @@ const projects = [
 		<main id="main-content" tabindex="-1">
 			<h1>Portfolio</h1>
 			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Browse selected projects, their
-				purpose, and the work involved.
+				[Introduce your selected projects and the kinds of problems you enjoy solving.]
 			</p>
 			<ul class="project-list">
 				{projects.map((project) => (
@@ -140,7 +137,9 @@ const projects = [
 									)}
 								</div>
 							) : (
-								<p class="no-public-links">No public source or demo link is available for this project.</p>
+								<p class="no-public-links">
+									[Add public source or demo links when available, or replace this note.]
+								</p>
 							)
 						}
 					</li>
