@@ -52,8 +52,8 @@ body {
 }
 
 main {
-	width: 720px;
-	max-width: calc(100% - 2em);
+	width: min(1120px, calc(100% - 2em));
+	max-width: 100%;
 	margin: auto;
 	padding: 3em 1em;
 }
@@ -183,7 +183,7 @@ hr {
 @media (max-width: 720px) {
 	body {
 		font-size: 18px;
-		}
+	}
 	main {
 		padding: 1em;
 	}
