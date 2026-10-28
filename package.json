@@ -26,7 +26,7 @@
     "astro": "^7.3.8",
     "astro-aws-amplify": "^0.6.0",
     "sharp": "^0.35.0",
-    "typescript": "^6.0.3"
+    "typescript": "^7.0.2"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.14.0",
