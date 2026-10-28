@@ -1,58 +1,68 @@
-# Astro Starter Kit: Blog
+# Developer Career Showcase
 
-```sh
-npm create astro@latest -- --template blog
-```
+An Astro site showcasing a developer's CV, portfolio, and blog, with a downloadable
+PDF CV, server-side rendering, and deployment to AWS Amplify or a Docker container.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Features
 
-Features:
+- Pages: Home, CV, Portfolio, Blog, and Contact
+- Dark, responsive, accessible design (skip link, keyboard focus, reduced-motion support)
+- CV web page and PDF generated from one data file
+- Markdown & MDX blog with RSS feed and sitemap
+- `/api/health` endpoint and request logging middleware
+- ESLint, Vitest unit tests, and Playwright + axe browser/accessibility tests in CI
+- Weekly Dependabot updates
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and Open Graph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## Project structure
 
 ```text
-├── public/
+├── .github/            # CI workflow and Dependabot config
+├── docs/adr/           # Architecture decision records
+├── public/             # Static assets (portfolio images; cv.pdf is generated)
+├── scripts/            # generate-cv-pdf.js
 ├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
+│   ├── components/     # Header, Footer, BaseHead, etc.
+│   ├── content/blog/   # Markdown/MDX posts
+│   ├── data/cv.json    # Single source of truth for the CV
+│   ├── layouts/
+│   ├── pages/          # Routes, including api/health.ts and rss.xml.js
+│   ├── styles/global.css
+│   └── middleware.ts   # Request logging
+├── tests/e2e/          # Playwright browser tests
+├── amplify.yml         # AWS Amplify build spec
+├── Dockerfile
+└── astro.config.mjs
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Requires Node.js `>=22.12.0`.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Commands
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+All commands are run from the root of the project:
 
-Any static assets, like images, can be placed in the `public/` directory.
+| Command                | Action                                                 |
+| :--------------------- | :----------------------------------------------------- |
+| `npm install`          | Install dependencies                                   |
+| `npm run dev`          | Generate the CV PDF and start dev server at `:4321`    |
+| `npm run build`        | Generate the CV PDF and build the production site      |
+| `npm run preview`      | Preview the production build locally                   |
+| `npm run generate:cv`  | Regenerate `public/cv.pdf` from `src/data/cv.json`     |
+| `npm run lint`         | Run ESLint                                             |
+| `npm run check`        | Run Astro type checks                                  |
+| `npm run test:unit`    | Run Vitest unit tests                                  |
+| `npm run test:e2e`     | Build, then run Playwright browser/accessibility tests |
 
-## 🧞 Commands
+## Testing
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build the production site and SSR bundle         |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- Unit tests (`src/**/*.test.ts`) run with Vitest, including a check that the
+  PDF contains every CV field as selectable text.
+- Browser tests (`tests/e2e`) run with Playwright against a production preview on
+  port 4322, at mobile (390px) and desktop (1440px) viewports, with axe
+  accessibility checks. First run `npx playwright install chromium`. If the
+  downloaded browser lacks system libraries (e.g. on NixOS), set
+  `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` to a system Chromium.
+- GitHub Actions runs lint, check, unit tests, and browser tests on every pull
+  request and push to `main`; failures block the workflow.
 
 ## CV PDF
 
@@ -126,9 +136,9 @@ docker push ACCOUNT_ID.dkr.ecr.REGION.amazonaws.com/astro-blog:v1.0.0
 See [ADR-001](docs/adr/ADR-001-transition-to-ssr-and-containers.md) for the
 architecture decision.
 
-## 👀 Want to learn more?
+## Learn more
 
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+See the [Astro documentation](https://docs.astro.build).
 
 ## Credit
 
