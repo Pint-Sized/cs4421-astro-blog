@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1048" height="577" viewBox="0 0 1048 577" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="38" y1="30" x2="1009" y2="547" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22183A"/>
+      <stop offset="1" stop-color="#10121C"/>
+    </linearGradient>
+    <linearGradient id="search" x1="281" y1="226" x2="764" y2="297" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#52F2D0" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#9B83FF" stop-opacity=".18"/>
+    </linearGradient>
+  </defs>
+  <rect width="1048" height="577" rx="18" fill="url(#bg)"/>
+  <circle cx="158" cy="101" r="130" fill="#52F2D0" fill-opacity=".06"/>
+  <circle cx="890" cy="486" r="162" fill="#FF69B8" fill-opacity=".06"/>
+  <rect x="86" y="52" width="876" height="474" rx="18" fill="#11111B" stroke="#9B83FF" stroke-opacity=".35" stroke-width="2"/>
+  <path d="M86 76a24 24 0 0 1 24-24h828a24 24 0 0 1 24 24v34H86V76Z" fill="#201C30"/>
+  <circle cx="112" cy="82" r="6" fill="#FF69B8"/>
+  <circle cx="134" cy="82" r="6" fill="#FFC66D"/>
+  <circle cx="156" cy="82" r="6" fill="#52F2D0"/>
+  <rect x="185" y="69" width="530" height="26" rx="13" fill="#11111B"/>
+  <text x="213" y="87" fill="#827D98" font-family="sans-serif" font-size="13">new tab</text>
+  <text x="142" y="160" fill="#EDEAFF" font-family="sans-serif" font-size="25" font-weight="700">A fresh start</text>
+  <text x="142" y="185" fill="#A9A3BE" font-family="sans-serif" font-size="15">Search, jump in, and make it yours.</text>
+  <rect x="142" y="216" width="764" height="68" rx="18" fill="url(#search)" stroke="#52F2D0" stroke-opacity=".45"/>
+  <circle cx="178" cy="250" r="10" stroke="#52F2D0" stroke-width="2"/>
+  <path d="m185 257 8 8" stroke="#52F2D0" stroke-width="2" stroke-linecap="round"/>
+  <text x="216" y="257" fill="#C5C0D8" font-family="sans-serif" font-size="18">Search the web...</text>
+  <g font-family="sans-serif" text-anchor="middle">
+    <rect x="142" y="318" width="164" height="112" rx="15" fill="#201C30" stroke="#9B83FF" stroke-opacity=".55"/>
+    <circle cx="224" cy="355" r="18" fill="#9B83FF" fill-opacity=".2"/><text x="224" y="361" fill="#C5B9FF" font-size="17" font-weight="700">G</text>
+    <text x="224" y="400" fill="#EDEAFF" font-size="14">Search</text>
+    <rect x="326" y="318" width="164" height="112" rx="15" fill="#201C30" stroke="#52F2D0" stroke-opacity=".5"/>
+    <circle cx="408" cy="355" r="18" fill="#52F2D0" fill-opacity=".16"/><text x="408" y="361" fill="#72F5D9" font-size="17" font-weight="700">D</text>
+    <text x="408" y="400" fill="#EDEAFF" font-size="14">Discover</text>
+    <rect x="510" y="318" width="164" height="112" rx="15" fill="#201C30" stroke="#FF69B8" stroke-opacity=".52"/>
+    <circle cx="592" cy="355" r="18" fill="#FF69B8" fill-opacity=".16"/><text x="592" y="361" fill="#FF9DCC" font-size="17" font-weight="700">W</text>
+    <text x="592" y="400" fill="#EDEAFF" font-size="14">Work</text>
+    <rect x="694" y="318" width="164" height="112" rx="15" fill="#201C30" stroke="#FFC66D" stroke-opacity=".48"/>
+    <circle cx="776" cy="355" r="18" fill="#FFC66D" fill-opacity=".16"/><text x="776" y="361" fill="#FFD995" font-size="17" font-weight="700">+</text>
+    <text x="776" y="400" fill="#EDEAFF" font-size="14">Customize</text>
+  </g>
+  <text x="142" y="478" fill="#827D98" font-family="sans-serif" font-size="13">Illustrative artwork • customized fork, not an application screenshot</text>
+</svg>

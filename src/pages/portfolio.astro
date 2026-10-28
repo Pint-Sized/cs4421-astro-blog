@@ -6,30 +6,42 @@ import { SITE_TITLE } from '../consts';
 
 const projects = [
 	{
-		id: 'project-one',
-		title: '[Project name]',
-		purpose: '[Describe the problem this project solves and who it is for.]',
-		contribution: '[Describe your role, work, and notable outcomes.]',
-		technologies: ['[Technology]', '[Technology]'],
-		source: '',
+		id: 'nixos-dotfiles',
+		title: 'NixOS Dotfiles',
+		purpose:
+			'A reproducible, modular configuration for setting up personalized NixOS desktop and laptop environments.',
+		contribution:
+			'I maintain the Nix flake and reusable system and Home Manager modules, organizing configuration for host setups, desktop workflows, and everyday development tools.',
+		technologies: ['Nix', 'NixOS', 'Home Manager', 'Hyprland'],
+		image: '/portfolio/nixos-dotfiles.svg',
+		imageAlt: 'Illustration of a laptop and modular NixOS system and Home Manager configurations.',
+		source: 'https://github.com/Pint-Sized/.dotfiles',
 		demo: '',
 	},
 	{
-		id: 'project-two',
-		title: '[Project name]',
-		purpose: '[Describe the problem this project solves and who it is for.]',
-		contribution: '[Describe your role, work, and notable outcomes.]',
-		technologies: ['[Technology]', '[Technology]'],
-		source: '',
+		id: 'system-fetch',
+		title: 'System Fetch',
+		purpose:
+			'A Linux command-line tool for inspecting processor, memory, PCI, and USB information in a terminal.',
+		contribution:
+			'I built the system information collector and a tabbed terminal interface with periodic refreshes. The tool also supports plain-text reports and structured JSON export.',
+		technologies: ['Java 21', 'Maven', 'TUI4J', 'Linux'],
+		image: '/portfolio/system-fetch.svg',
+		imageAlt: 'System Fetch terminal interface showing processor information and tab navigation with representative sample data.',
+		source: 'https://github.com/Pint-Sized/CS4421SystemInfo',
 		demo: '',
 	},
 	{
-		id: 'project-three',
-		title: '[Project name]',
-		purpose: '[Describe the problem this project solves and who it is for.]',
-		contribution: '[Describe your role, work, and notable outcomes.]',
-		technologies: ['[Technology]', '[Technology]'],
-		source: '',
+		id: 'chevron',
+		title: 'Chevron — Customized Fork',
+		purpose:
+			'A customizable browser start page for quick access to search and frequently used content.',
+		contribution:
+			'I customized this open-source React project by removing its ChatGPT integration and improving its color-scheme settings.',
+		technologies: ['JavaScript', 'React', 'Vite'],
+		image: '/portfolio/chevron-startpage.svg',
+		imageAlt: 'Illustration of a dark browser start page with a search field and shortcut tiles; not an application screenshot.',
+		source: 'https://github.com/Pint-Sized/chevron',
 		demo: '',
 	},
 ];
@@ -76,6 +88,16 @@ const projects = [
 			.project-card h2 {
 				font-size: 1.75rem;
 				color: #f5f2ff;
+			}
+
+			.project-image {
+				display: block;
+				width: 100%;
+				aspect-ratio: 16 / 9;
+				margin-bottom: 1.25rem;
+				border: 1px solid var(--border);
+				border-radius: 0.75rem;
+				object-fit: cover;
 			}
 
 			.project-card h3 {
@@ -132,11 +154,21 @@ const projects = [
 		<main id="main-content" tabindex="-1">
 			<h1>Portfolio</h1>
 			<p>
-				[Introduce your selected projects and the kinds of problems you enjoy solving.]
+				A selection of my projects, from reproducible Linux configurations and system tools to
+				customizations of an open-source browser start page.
 			</p>
 			<ul class="project-list">
 				{projects.map((project) => (
 					<li class="project-card glass-panel" id={project.id}>
+						<img
+							class="project-image"
+							src={project.image}
+							alt={project.imageAlt}
+							width="1048"
+							height="577"
+							loading="lazy"
+							decoding="async"
+						/>
 						<h2>{project.title}</h2>
 						<h3>Project purpose</h3>
 						<p>{project.purpose}</p>
@@ -150,12 +182,12 @@ const projects = [
 							project.source || project.demo ? (
 								<div class="project-links">
 									{project.source && (
-										<a href={project.source} target="_blank" rel="noreferrer">
+										<a href={project.source} target="_blank" rel="noopener noreferrer">
 											View source code
 										</a>
 									)}
 									{project.demo && (
-										<a href={project.demo} target="_blank" rel="noreferrer">
+										<a href={project.demo} target="_blank" rel="noopener noreferrer">
 											View live demo
 										</a>
 									)}
