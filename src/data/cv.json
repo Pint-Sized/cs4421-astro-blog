@@ -1,0 +1,54 @@
+{
+  "notice": "Template content: replace every bracketed prompt with your own accurate details before publishing.",
+  "title": "Curriculum vitae",
+  "name": "[Your name]",
+  "contact": "[Email address] · [Location] · [Professional profile URL]",
+  "sections": [
+    {
+      "title": "Professional profile",
+      "paragraphs": [
+        "[Write a short summary of your professional background, strengths, and career goals.]"
+      ]
+    },
+    {
+      "title": "Work experience",
+      "entries": [
+        {
+          "title": "[Role title]",
+          "organization": "[Organization]",
+          "dates": "[Start date–End date]",
+          "description": "[Describe your responsibilities, contributions, and measurable achievements.]"
+        },
+        {
+          "title": "[Role title]",
+          "organization": "[Organization]",
+          "dates": "[Start date–End date]",
+          "description": "[Describe your responsibilities, contributions, and measurable achievements.]"
+        }
+      ]
+    },
+    {
+      "title": "Education and credentials",
+      "entries": [
+        {
+          "title": "[Degree or qualification]",
+          "organization": "[Institution]",
+          "dates": "[Start date–End date]",
+          "description": "[Add relevant subjects, honors, or other details.]"
+        },
+        {
+          "title": "[Certification or credential]",
+          "organization": "[Provider]",
+          "dates": "[Year]",
+          "description": "[Add relevant details or remove this entry if not applicable.]"
+        }
+      ]
+    },
+    {
+      "title": "Skills",
+      "paragraphs": [
+        "[List your programming languages, frameworks, tools, and other relevant skills.]"
+      ]
+    }
+  ]
+}
