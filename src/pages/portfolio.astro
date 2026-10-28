@@ -54,18 +54,34 @@ const projects = [
 			.project-card {
 				display: flex;
 				flex-direction: column;
-				border: 1px solid rgba(var(--gray), 25%);
-				border-radius: 0.75rem;
 				padding: 1.5rem;
+				border-top: 2px solid #9b83ff;
+				transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+			}
+
+			.project-card:nth-child(3n + 2) {
+				border-top-color: #52f2d0;
+			}
+
+			.project-card:nth-child(3n) {
+				border-top-color: #ff69b8;
+			}
+
+			.project-card:hover {
+				transform: translateY(-4px);
+				border-color: rgba(82, 242, 208, 0.62);
+				box-shadow: 0 24px 60px rgba(0, 0, 0, 0.42), 0 0 28px rgba(141, 123, 255, 0.1);
 			}
 
 			.project-card h2 {
 				font-size: 1.75rem;
+				color: #f5f2ff;
 			}
 
 			.project-card h3 {
 				margin-top: 0.75rem;
 				font-size: 1.1rem;
+				color: #bdb1ff;
 			}
 
 			.project-card p {
@@ -82,8 +98,10 @@ const projects = [
 
 			.technologies li {
 				padding: 0.2rem 0.6rem;
+				border: 1px solid rgba(82, 242, 208, 0.24);
 				border-radius: 1rem;
-				background: rgba(var(--gray-light), 70%);
+				background: rgba(82, 242, 208, 0.08);
+				color: #8cf6df;
 				font-size: 0.9rem;
 			}
 
@@ -98,8 +116,14 @@ const projects = [
 			.no-public-links {
 				margin-top: auto !important;
 				padding-top: 1rem;
-				color: rgb(var(--gray));
+				color: #aaa6c1;
 				font-size: 0.95rem;
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				.project-card {
+					transition: none;
+				}
 			}
 		</style>
 	</head>
@@ -112,7 +136,7 @@ const projects = [
 			</p>
 			<ul class="project-list">
 				{projects.map((project) => (
-					<li class="project-card" id={project.id}>
+					<li class="project-card glass-panel" id={project.id}>
 						<h2>{project.title}</h2>
 						<h3>Project purpose</h3>
 						<p>{project.purpose}</p>

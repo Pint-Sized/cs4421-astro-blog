@@ -17,42 +17,56 @@ import { SITE_TITLE } from '../consts';
 				margin-block: 3rem;
 			}
 
-			.cv-entry {
-				margin-block: 1.5rem;
-				padding-bottom: 1.5rem;
-				border-bottom: 1px solid rgba(var(--gray), 25%);
+			.cv-section > h2 {
+				padding-bottom: 0.6rem;
+				border-bottom: 1px solid var(--border);
+				color: #c8baff;
 			}
 
-			.cv-entry:last-child {
-				border-bottom: 0;
+			.cv-entry {
+				margin-block: 1.5rem;
+				padding: 1.25rem;
+				border-left: 3px solid #9b83ff;
+			}
+
+			.cv-entry:nth-of-type(even) {
+				border-left-color: #52f2d0;
+			}
+
+			.cv-entry h3 {
+				color: #f0edff;
 			}
 
 			.placeholder-note {
 				padding: 1rem;
-				border-left: 4px solid var(--accent);
-				background: rgba(var(--gray-light), 50%);
+				border-left: 4px solid #ff69b8;
+				color: #d7d2ea;
 			}
 
 			.download-link {
 				display: inline-block;
 				margin-block: 1rem 2rem;
 				padding: 0.65rem 1rem;
-				border-radius: 0.4rem;
-				background: var(--accent);
-				color: white;
+				border: 1px solid rgba(82, 242, 208, 0.5);
+				border-radius: 0.6rem;
+				background: linear-gradient(110deg, #6b4eff, #a23fe0);
+				color: #fff;
 				font-weight: 700;
 				text-decoration: none;
+				box-shadow: 0 8px 26px rgba(111, 69, 255, 0.3);
 			}
 
 			.download-link:hover {
-				background: var(--accent-dark);
+				background: linear-gradient(110deg, #785fff, #ba48ed);
 				color: white;
+				transform: translateY(-1px);
 			}
 
 			@media print {
 				:global(body) {
 					background: white;
 					color: black;
+					color-scheme: light;
 					font-size: 11pt;
 					line-height: 1.4;
 				}
@@ -90,8 +104,16 @@ import { SITE_TITLE } from '../consts';
 					break-inside: avoid;
 				}
 
-				.placeholder-note {
+				:global(.glass-panel) {
+					border: 0;
 					background: white;
+					box-shadow: none;
+					backdrop-filter: none;
+					-webkit-backdrop-filter: none;
+				}
+
+				.placeholder-note {
+					border-left: 4px solid #6b4eff;
 				}
 			}
 		</style>
@@ -99,7 +121,7 @@ import { SITE_TITLE } from '../consts';
 	<body>
 		<Header />
 		<main id="main-content" tabindex="-1">
-			<p class="placeholder-note">
+			<p class="placeholder-note glass-panel">
 				Template content: replace every bracketed prompt with your own accurate details before
 				publishing.
 			</p>
@@ -119,12 +141,12 @@ import { SITE_TITLE } from '../consts';
 
 			<section class="cv-section" aria-labelledby="experience-heading">
 				<h2 id="experience-heading">Work experience</h2>
-				<article class="cv-entry">
+				<article class="cv-entry glass-panel">
 					<h3>[Role title]</h3>
 					<p><strong>[Organization]</strong> · [Start date–End date]</p>
 					<p>[Describe your responsibilities, contributions, and measurable achievements.]</p>
 				</article>
-				<article class="cv-entry">
+				<article class="cv-entry glass-panel">
 					<h3>[Role title]</h3>
 					<p><strong>[Organization]</strong> · [Start date–End date]</p>
 					<p>[Describe your responsibilities, contributions, and measurable achievements.]</p>
@@ -133,12 +155,12 @@ import { SITE_TITLE } from '../consts';
 
 			<section class="cv-section" aria-labelledby="education-heading">
 				<h2 id="education-heading">Education and credentials</h2>
-				<article class="cv-entry">
+				<article class="cv-entry glass-panel">
 					<h3>[Degree or qualification]</h3>
 					<p><strong>[Institution]</strong> · [Start date–End date]</p>
 					<p>[Add relevant subjects, honors, or other details.]</p>
 				</article>
-				<article class="cv-entry">
+				<article class="cv-entry glass-panel">
 					<h3>[Certification or credential]</h3>
 					<p><strong>[Provider]</strong> · [Year]</p>
 					<p>[Add relevant details or remove this entry if not applicable.]</p>
