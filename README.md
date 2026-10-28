@@ -54,6 +54,14 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
+## CV PDF
+
+The web CV and downloadable PDF are generated from the same source file:
+`src/data/cv.json`. Update that file to change CV content. Run
+`npm run generate:cv` to regenerate `public/cv.pdf`; `npm run build` runs this
+generator automatically before building the site, so deployed PDFs cannot be
+left stale relative to the web CV.
+
 ## Deploying to AWS
 
 This project uses AWS Amplify Hosting with the `astro-aws-amplify` adapter for
