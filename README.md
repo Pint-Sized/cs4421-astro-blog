@@ -60,7 +60,8 @@ The web CV and downloadable PDF are generated from the same source file:
 `src/data/cv.json`. Update that file to change CV content. Run
 `npm run generate:cv` to regenerate `public/cv.pdf`; `npm run build` runs this
 generator automatically before building the site, so deployed PDFs cannot be
-left stale relative to the web CV.
+left stale relative to the web CV. The PDF is a generated file and is
+git-ignored, so it is not committed.
 
 ## Deploying to AWS
 
