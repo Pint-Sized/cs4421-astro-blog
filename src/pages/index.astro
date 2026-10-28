@@ -22,7 +22,8 @@ const recentPosts = (await getCollection('blog'))
 			.intro,
 			.experience,
 			.career-links,
-			.recent-posts {
+			.recent-posts,
+			.contact {
 				margin-block: 4rem;
 			}
 
@@ -94,7 +95,8 @@ const recentPosts = (await getCollection('blog'))
 
 			.experience h2,
 			.career-links h2,
-			.recent-posts h2 {
+			.recent-posts h2,
+			.contact h2 {
 				padding-left: 1rem;
 				border-left: 3px solid var(--accent);
 			}
@@ -109,7 +111,8 @@ const recentPosts = (await getCollection('blog'))
 			}
 
 			.experience-card,
-			.career-links li {
+			.career-links li,
+			.contact li {
 				padding: 1.25rem;
 			}
 
@@ -130,7 +133,8 @@ const recentPosts = (await getCollection('blog'))
 			}
 
 			.career-links li:nth-child(3),
-			.recent-posts li:nth-child(3n) {
+			.recent-posts li:nth-child(3n),
+			.contact li:nth-child(2) {
 				border-top-color: rgba(255, 105, 184, 0.8);
 			}
 
@@ -139,14 +143,38 @@ const recentPosts = (await getCollection('blog'))
 			}
 
 			.career-links h3 a,
-			.recent-posts li a {
+			.recent-posts li a,
+			.contact li a {
 				color: #f0edff;
 				text-decoration: none;
 			}
 
 			.career-links li p,
-			.recent-posts li time {
+			.recent-posts li time,
+			.contact li p {
 				color: #aaa6c1;
+			}
+
+			.contact ul {
+				display: grid;
+				gap: 1.5rem;
+				grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+				list-style: none;
+				padding: 0;
+			}
+
+			.contact li h3 a {
+				color: #8cf6df;
+			}
+
+			.contact li:nth-child(2) h3 a {
+				color: #ff9dcc;
+			}
+
+			.contact li:hover {
+				transform: translateY(-3px);
+				border-color: rgba(82, 242, 208, 0.55);
+				box-shadow: 0 24px 60px rgba(0, 0, 0, 0.42), 0 0 24px rgba(82, 242, 208, 0.07);
 			}
 
 			.recent-posts ul {
@@ -184,7 +212,8 @@ const recentPosts = (await getCollection('blog'))
 			@media (prefers-reduced-motion: reduce) {
 				.recent-posts li:hover,
 				.experience-card:hover,
-				.career-links li:hover {
+				.career-links li:hover,
+				.contact li:hover {
 					transform: none;
 				}
 			}
@@ -260,6 +289,38 @@ const recentPosts = (await getCollection('blog'))
 				</ul>
 				<p><a href="/blog/">View all posts</a></p>
 				<p><a href="/rss.xml">Subscribe via RSS</a></p>
+			</section>
+
+			<section class="contact" id="contact" aria-labelledby="contact-heading">
+				<h2 id="contact-heading">Let’s connect</h2>
+				<p>
+					Have a question about my work or want to discuss an opportunity? Reach out through one
+					of these public profiles.
+				</p>
+				<ul>
+					<li class="glass-panel">
+						<h3>
+							<a href="https://github.com/Pint-Sized" target="_blank" rel="noopener noreferrer">
+								Connect on GitHub
+								<span class="sr-only"> (opens in a new tab)</span>
+							</a>
+						</h3>
+						<p>View my projects and get in touch through my GitHub profile.</p>
+					</li>
+					<li class="glass-panel">
+						<h3>
+							<a
+								href="https://www.instagram.com/fionn.bennett/"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								Message me on Instagram
+								<span class="sr-only"> (opens in a new tab)</span>
+							</a>
+						</h3>
+						<p>Send me a message through my Instagram profile.</p>
+					</li>
+				</ul>
 			</section>
 		</main>
 		<Footer />
