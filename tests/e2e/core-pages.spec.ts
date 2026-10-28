@@ -1,6 +1,7 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 
+// Check the core site routes and their primary page headings.
 const pages = [
 	{ path: '/', heading: '[Your name]' },
 	{ path: '/cv', heading: 'Curriculum vitae' },
@@ -8,11 +9,13 @@ const pages = [
 	{ path: '/blog', heading: 'Blog' },
 ];
 
+// Exercise layouts at representative phone and desktop dimensions.
 const viewports = [
 	{ name: 'mobile', width: 390, height: 844 },
 	{ name: 'desktop', width: 1440, height: 1000 },
 ];
 
+// Repeat content, navigation, overflow, and automated accessibility checks per viewport.
 for (const viewport of viewports) {
 	test.describe(`${viewport.name} core pages`, () => {
 		test.use({ viewport });
@@ -51,6 +54,7 @@ for (const viewport of viewports) {
 	});
 }
 
+// Confirm keyboard-only visitors can skip to content and navigate to a key page.
 test('primary navigation is reachable and usable with the keyboard', async ({ page }) => {
 	await page.goto('/');
 
@@ -73,6 +77,7 @@ test('primary navigation is reachable and usable with the keyboard', async ({ pa
 	await expect(page.getByRole('heading', { name: 'Portfolio', exact: true })).toBeVisible();
 });
 
+// Guard the public CV download against broken or outdated page links.
 test('CV page links to the downloadable PDF', async ({ page }) => {
 	await page.goto('/cv');
 	await expect(page.getByRole('link', { name: 'Download current CV as PDF' })).toHaveAttribute(

@@ -4,6 +4,7 @@
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
 
+/* Centralize the dark theme palette and reusable glass-surface colors. */
 :root {
 	color-scheme: dark;
 	--accent: #52f2d0;
@@ -18,6 +19,7 @@
 	--box-shadow: 0 20px 60px rgba(0, 0, 0, 0.34), 0 0 34px rgba(101, 75, 255, 0.08);
 }
 
+/* Apply a consistent box model and establish the site-wide background and type. */
 * {
 	box-sizing: border-box;
 }
@@ -41,6 +43,7 @@ body {
 	line-height: 1.7;
 }
 
+/* Style raised panels and the shared content column. */
 .glass-panel {
 	border: 1px solid var(--border);
 	border-radius: 1.15rem;
@@ -57,6 +60,7 @@ main {
 	margin: auto;
 	padding: 3em 1em;
 }
+/* Set a clear heading scale and global link treatments. */
 h1,
 h2,
 h3,
@@ -95,6 +99,7 @@ a {
 a:hover {
 	color: #a99cff;
 }
+/* Keep keyboard focus visible and smooth-scroll only when motion is allowed. */
 a:focus-visible,
 button:focus-visible,
 [tabindex='-1']:focus-visible {
@@ -118,6 +123,7 @@ html {
 		transition-duration: 0.01ms !important;
 	}
 }
+/* Provide comfortable paragraph spacing and predictable form/table sizing. */
 p {
 	margin-bottom: 1em;
 }
@@ -139,6 +145,7 @@ img {
 	height: auto;
 	border-radius: 8px;
 }
+/* Keep inline and preformatted code readable against the dark theme. */
 code {
 	padding: 2px 5px;
 	background-color: rgb(var(--gray-light));
@@ -167,11 +174,13 @@ hr {
 	border-top: 1px solid var(--border);
 }
 
+/* Normalize image, quotation, divider, and text-selection presentation. */
 ::selection {
 	background: rgba(82, 242, 208, 0.28);
 	color: #fff;
 }
 
+/* Animate interactive controls only for visitors who have not reduced motion. */
 @media (prefers-reduced-motion: no-preference) {
 	a,
 	button {
@@ -180,6 +189,7 @@ hr {
 	}
 }
 
+/* Tighten type and page padding for narrow viewports. */
 @media (max-width: 720px) {
 	body {
 		font-size: 18px;
@@ -189,6 +199,7 @@ hr {
 	}
 }
 
+/* Remove blur and translucency when the user requests reduced transparency. */
 @media (prefers-reduced-transparency: reduce) {
 	.glass-panel {
 		background: #181625;
@@ -197,6 +208,7 @@ hr {
 	}
 }
 
+/* Visually hide helper text while leaving it available to assistive technology. */
 .sr-only {
 	border: 0;
 	padding: 0;

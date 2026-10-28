@@ -1,5 +1,6 @@
 version: 2
 updates:
+  # Group routine npm patch and minor updates into a weekly pull request.
   - package-ecosystem: npm
     directory: /
     schedule:
@@ -14,6 +15,7 @@ updates:
       - dependencies
     open-pull-requests-limit: 10
 
+  # Keep GitHub Actions dependencies updated on the same weekly cadence.
   - package-ecosystem: github-actions
     directory: /
     schedule:

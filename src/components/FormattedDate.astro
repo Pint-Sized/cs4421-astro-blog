@@ -8,6 +8,7 @@ interface Props {
 const { date } = Astro.props;
 ---
 
+<!-- Expose a machine-readable date while rendering a localized human-readable label. -->
 <time datetime={date.toISOString()}>
 	{formatDate(date)}
 </time>

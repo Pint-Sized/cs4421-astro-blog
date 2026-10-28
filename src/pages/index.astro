@@ -19,6 +19,7 @@ const recentPosts = (await getCollection('blog'))
 			description="Explore a developer profile, experience, portfolio, CV, and recent blog posts."
 		/>
 		<style>
+			/* Separate each homepage topic while keeping comfortable vertical rhythm. */
 			.intro,
 			.experience,
 			.career-links,
@@ -27,6 +28,7 @@ const recentPosts = (await getCollection('blog'))
 				margin-block: 4rem;
 			}
 
+			/* Make the introduction the visual focal point of the career showcase. */
 			.intro {
 				position: relative;
 				margin-top: 2rem;
@@ -41,6 +43,7 @@ const recentPosts = (await getCollection('blog'))
 				box-shadow: 0 24px 80px rgba(0, 0, 0, 0.38), inset 0 1px rgba(255, 255, 255, 0.06);
 			}
 
+			/* Add subtle decorative rings without obscuring hero text. */
 			.intro::after {
 				position: absolute;
 				right: -2rem;
@@ -54,6 +57,7 @@ const recentPosts = (await getCollection('blog'))
 				pointer-events: none;
 			}
 
+			/* Apply the gradient treatment to the hero heading and call to action. */
 			.intro h1 {
 				position: relative;
 				z-index: 1;
@@ -101,6 +105,7 @@ const recentPosts = (await getCollection('blog'))
 				border-left: 3px solid var(--accent);
 			}
 
+			/* Use responsive grids for experience, work links, and contact cards. */
 			.experience-grid,
 			.career-links ul {
 				display: grid;
@@ -110,6 +115,7 @@ const recentPosts = (await getCollection('blog'))
 				padding: 0;
 			}
 
+			/* Distinguish cards with accent colors while keeping their shared surface. */
 			.experience-card,
 			.career-links li,
 			.contact li {
@@ -142,6 +148,7 @@ const recentPosts = (await getCollection('blog'))
 				font-weight: 700;
 			}
 
+			/* Keep links and supporting copy legible against dark card surfaces. */
 			.career-links h3 a,
 			.recent-posts li a,
 			.contact li a {
@@ -155,6 +162,7 @@ const recentPosts = (await getCollection('blog'))
 				color: #aaa6c1;
 			}
 
+			/* Lay out approved contact channels as keyboard-reachable profile cards. */
 			.contact ul {
 				display: grid;
 				gap: 1.5rem;
@@ -177,6 +185,7 @@ const recentPosts = (await getCollection('blog'))
 				box-shadow: 0 24px 60px rgba(0, 0, 0, 0.42), 0 0 24px rgba(82, 242, 208, 0.07);
 			}
 
+			/* Match the recent-post cards to the rest of the homepage grids. */
 			.recent-posts ul {
 				display: grid;
 				gap: 1.5rem;
@@ -209,6 +218,7 @@ const recentPosts = (await getCollection('blog'))
 				font-size: 0.9rem;
 			}
 
+			/* Avoid hover movement when the visitor requests reduced motion. */
 			@media (prefers-reduced-motion: reduce) {
 				.recent-posts li:hover,
 				.experience-card:hover,
@@ -222,6 +232,7 @@ const recentPosts = (await getCollection('blog'))
 	<body>
 		<Header />
 		<main id="main-content" tabindex="-1">
+			<!-- Introduce the developer and link into the experience section. -->
 			<section class="intro" aria-labelledby="intro-heading">
 				<h1 id="intro-heading">[Your name]</h1>
 				<p>
@@ -231,6 +242,7 @@ const recentPosts = (await getCollection('blog'))
 				<p><a href="#experience">Explore my experience</a></p>
 			</section>
 
+			<!-- Summarize professional experience and credentials. -->
 			<section class="experience" id="experience" aria-labelledby="experience-heading">
 				<h2 id="experience-heading">Experience and credentials</h2>
 				<p>
@@ -250,6 +262,7 @@ const recentPosts = (await getCollection('blog'))
 				</div>
 			</section>
 
+			<!-- Direct visitors to the detailed CV, portfolio, and blog pages. -->
 			<section class="career-links" aria-labelledby="career-links-heading">
 				<h2 id="career-links-heading">Explore my work</h2>
 				<p>
@@ -271,6 +284,7 @@ const recentPosts = (await getCollection('blog'))
 				</ul>
 			</section>
 
+			<!-- Surface a small, date-sorted sample of recent blog posts. -->
 			<section class="recent-posts" aria-labelledby="recent-posts-heading">
 				<h2 id="recent-posts-heading">Recent posts</h2>
 				<p>
@@ -291,6 +305,7 @@ const recentPosts = (await getCollection('blog'))
 				<p><a href="/rss.xml">Subscribe via RSS</a></p>
 			</section>
 
+			<!-- Publish only the previously approved GitHub and Instagram contact channels. -->
 			<section class="contact" id="contact" aria-labelledby="contact-heading">
 				<h2 id="contact-heading">Let’s connect</h2>
 				<p>

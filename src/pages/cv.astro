@@ -14,6 +14,7 @@ import cv from '../data/cv.json';
 			description="Review the developer's curriculum vitae, work experience, education, credentials, and skills."
 		/>
 		<style>
+			/* Keep CV sections distinct and make each entry easy to scan. */
 			.cv-section {
 				margin-block: 3rem;
 			}
@@ -38,12 +39,14 @@ import cv from '../data/cv.json';
 				color: #f0edff;
 			}
 
+			/* Style the template notice separately from the qualifications below it. */
 			.placeholder-note {
 				padding: 1rem;
 				border-left: 4px solid #ff69b8;
 				color: #d7d2ea;
 			}
 
+			/* Give the current downloadable PDF a prominent, accessible action. */
 			.download-link {
 				display: inline-block;
 				margin-block: 1rem 2rem;
@@ -63,6 +66,7 @@ import cv from '../data/cv.json';
 				transform: translateY(-1px);
 			}
 
+			/* Make browser-printed copies readable without the site's dark theme. */
 			@media print {
 				:global(body) {
 					background: white;
@@ -131,6 +135,7 @@ import cv from '../data/cv.json';
 	<body>
 		<Header />
 		<main id="main-content" tabindex="-1">
+			<!-- Render the web CV and PDF from the same structured source data. -->
 			<p class="placeholder-note glass-panel">{cv.notice}</p>
 			<h1>{cv.title}</h1>
 			<h2>{cv.name}</h2>
@@ -139,6 +144,7 @@ import cv from '../data/cv.json';
 				Download current CV as PDF
 			</a>
 
+			<!-- Render each profile, experience, education, and skills section from shared data. -->
 			{cv.sections.map((section, index) => (
 				<section class="cv-section" aria-labelledby={`cv-section-${index}`}>
 					<h2 id={`cv-section-${index}`}>{section.title}</h2>

@@ -4,6 +4,7 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_TITLE } from '../consts';
 
+// Keep project summaries in page data so each card uses one consistent template.
 const projects = [
 	{
 		id: 'project-one',
@@ -43,6 +44,7 @@ const projects = [
 			description="Browse selected development projects, contributions, technologies, and available demos or source code."
 		/>
 		<style>
+			/* Arrange project cards to adapt from one column to a wider grid. */
 			.project-list {
 				display: grid;
 				gap: 1.5rem;
@@ -51,6 +53,7 @@ const projects = [
 				padding: 0;
 			}
 
+			/* Keep each project description and its available links together. */
 			.project-card {
 				display: flex;
 				flex-direction: column;
@@ -88,6 +91,7 @@ const projects = [
 				margin-top: 0;
 			}
 
+			/* Use compact chips to make each project's stack easy to scan. */
 			.technologies {
 				display: flex;
 				flex-wrap: wrap;
@@ -134,6 +138,7 @@ const projects = [
 			<p>
 				[Introduce your selected projects and the kinds of problems you enjoy solving.]
 			</p>
+			<!-- Render project purpose, contribution, technologies, and optional public links. -->
 			<ul class="project-list">
 				{projects.map((project) => (
 					<li class="project-card glass-panel" id={project.id}>
