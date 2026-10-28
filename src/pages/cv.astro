@@ -3,6 +3,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_TITLE } from '../consts';
+import cv from '../data/cv.json';
 ---
 
 <!doctype html>
@@ -96,11 +97,19 @@ import { SITE_TITLE } from '../consts';
 					font-size: 13pt;
 				}
 
+				h1,
+				h2,
+				h3,
+				.cv-section > h2 {
+					color: #171522;
+				}
+
 				.cv-section {
 					margin-block: 1.5rem;
 				}
 
 				.cv-entry {
+					border-left-color: #5140ad;
 					break-inside: avoid;
 				}
 
@@ -114,6 +123,7 @@ import { SITE_TITLE } from '../consts';
 
 				.placeholder-note {
 					border-left: 4px solid #6b4eff;
+					color: #29263a;
 				}
 			}
 		</style>
@@ -121,58 +131,27 @@ import { SITE_TITLE } from '../consts';
 	<body>
 		<Header />
 		<main id="main-content" tabindex="-1">
-			<p class="placeholder-note glass-panel">
-				Template content: replace every bracketed prompt with your own accurate details before
-				publishing.
-			</p>
-			<h1>Curriculum vitae</h1>
-			<h2>[Your name]</h2>
-			<p>[Email address] · [Location] · [Professional profile URL]</p>
+			<p class="placeholder-note glass-panel">{cv.notice}</p>
+			<h1>{cv.title}</h1>
+			<h2>{cv.name}</h2>
+			<p>{cv.contact}</p>
 			<a class="download-link" href="/cv.pdf" download="developer-cv.pdf">
-				Download CV as PDF
+				Download current CV as PDF
 			</a>
 
-			<section class="cv-section" aria-labelledby="profile-heading">
-				<h2 id="profile-heading">Professional profile</h2>
-				<p>
-					[Write a short summary of your professional background, strengths, and career goals.]
-				</p>
-			</section>
-
-			<section class="cv-section" aria-labelledby="experience-heading">
-				<h2 id="experience-heading">Work experience</h2>
-				<article class="cv-entry glass-panel">
-					<h3>[Role title]</h3>
-					<p><strong>[Organization]</strong> · [Start date–End date]</p>
-					<p>[Describe your responsibilities, contributions, and measurable achievements.]</p>
-				</article>
-				<article class="cv-entry glass-panel">
-					<h3>[Role title]</h3>
-					<p><strong>[Organization]</strong> · [Start date–End date]</p>
-					<p>[Describe your responsibilities, contributions, and measurable achievements.]</p>
-				</article>
-			</section>
-
-			<section class="cv-section" aria-labelledby="education-heading">
-				<h2 id="education-heading">Education and credentials</h2>
-				<article class="cv-entry glass-panel">
-					<h3>[Degree or qualification]</h3>
-					<p><strong>[Institution]</strong> · [Start date–End date]</p>
-					<p>[Add relevant subjects, honors, or other details.]</p>
-				</article>
-				<article class="cv-entry glass-panel">
-					<h3>[Certification or credential]</h3>
-					<p><strong>[Provider]</strong> · [Year]</p>
-					<p>[Add relevant details or remove this entry if not applicable.]</p>
-				</article>
-			</section>
-
-			<section class="cv-section" aria-labelledby="skills-heading">
-				<h2 id="skills-heading">Skills</h2>
-				<p>
-					[List your programming languages, frameworks, tools, and other relevant skills.]
-				</p>
-			</section>
+			{cv.sections.map((section, index) => (
+				<section class="cv-section" aria-labelledby={`cv-section-${index}`}>
+					<h2 id={`cv-section-${index}`}>{section.title}</h2>
+					{section.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
+					{section.entries?.map((entry) => (
+						<article class="cv-entry glass-panel">
+							<h3>{entry.title}</h3>
+							<p><strong>{entry.organization}</strong> · {entry.dates}</p>
+							<p>{entry.description}</p>
+						</article>
+					))}
+				</section>
+			))}
 		</main>
 		<Footer />
 	</body>
