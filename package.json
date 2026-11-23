@@ -18,23 +18,23 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.10",
-    "@astrojs/mdx": "^8.0.3",
-    "@astrojs/node": "^11.1.9",
+    "@astrojs/check": "^0.9.12",
+    "@astrojs/mdx": "^8.1.6",
+    "@astrojs/node": "^11.1.14",
     "@astrojs/rss": "^4.0.19",
-    "@astrojs/sitemap": "^3.7.4",
-    "astro": "^7.3.8",
+    "@astrojs/sitemap": "^3.7.6",
+    "astro": "^7.4.13",
     "astro-aws-amplify": "^0.6.0",
     "sharp": "^0.35.0",
     "typescript": "^6.0.3"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.14.0",
-    "@playwright/test": "^1.64.1",
-    "eslint": "^10.12.0",
+    "@playwright/test": "^1.65.1",
+    "eslint": "^10.15.0",
     "eslint-plugin-astro": "^3.2.1",
-    "pdfkit": "^0.20.2",
-    "typescript-eslint": "^8.71.1",
-    "vitest": "^5.0.3"
+    "pdfkit": "^0.21.0",
+    "typescript-eslint": "^8.73.0",
+    "vitest": "^5.1.1"
   }
 }
